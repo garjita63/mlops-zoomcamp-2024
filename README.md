@@ -9,4 +9,4 @@
 - Homework
   - [Question](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/01-intro/homework.md)
   - [Form Submitted](https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw1)
-  - [Answer/Solution](https://github.com/garjita63/mlops-zoomcamp-2024/tree/main/homework/module-1)
+  - [Answer/Solution](https://github.com/garjita63/mlops-zoomcamp-2024/tree/main/homework/module1)
