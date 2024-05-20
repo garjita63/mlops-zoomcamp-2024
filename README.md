@@ -12,7 +12,7 @@
   - [Answer/Solution](https://github.com/garjita63/mlops-zoomcamp-2024/tree/main/homework/module1)
 
 
-## Module 01 : Intro
+## Module 02-experiment-tracking
 
 - [Source](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/02-experiment-tracking)
 
