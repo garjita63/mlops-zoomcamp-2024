@@ -14,7 +14,19 @@
     ``
 
 
-3. Launch Mage and the database service (PostgreSQL):
+3. Pull mageai
+
+   ``
+   docker pull mageai/mageai:alpha
+   ``
+   
+4. Run compose
+
+   ``
+   docker compose build --no-cache
+   ``
+   
+5. Launch Mage and the database service (PostgreSQL):
    
     ``
     ./scripts/start.sh
