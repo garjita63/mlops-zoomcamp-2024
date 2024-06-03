@@ -15,6 +15,7 @@
 
 
 3. Launch Mage and the database service (PostgreSQL):
+   
     ``
     ./scripts/start.sh
     ``
