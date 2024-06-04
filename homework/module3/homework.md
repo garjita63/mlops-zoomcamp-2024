@@ -27,7 +27,9 @@ How many lines are in the created metadata.yaml file?
     - 55
     - 65
 
-Question 3. Creating a pipeline
+### Answer of Question 2: 45
+
+## Question 3. Creating a pipeline
 
 Let's create an ingestion code block.
 
@@ -39,7 +41,9 @@ How many records did we load?
     - 3,203,766
     - 3,403,766
     - 3,603,766
-   
+
+### Answer of Question 3: 3,403,766
+
 
 ## Question 4. Data preparation
 
