@@ -107,50 +107,41 @@ The model is trained, so let's save it with MLFlow.
 
 If you run mage with docker-compose, stop it with Ctrl+C or
 
-``
-docker-compose down
-``
+    ``
+    docker-compose down
+    ``
 
 Let's create a dockerfile for mlflow, e.g. mlflow.dockerfile:
 
-``
-FROM python:3.10-slim
-RUN pip install mlflow==2.12.1
-EXPOSE 5000
-CMD [ \
-    "mlflow", "server", \
-    "--backend-store-uri", "sqlite:///home/mlflow/mlflow.db", \
-    "--host", "0.0.0.0", \
-    "--port", "5000" \
-]
-``
-
-``
-FR`OM python:3.10-slim
-RUN pip install mlflow==2.12.1
-EXPOSE 5000
-CMD [ \
-    "mlflow", "server", \
-    "--backend-store-uri", "sqlite:///home/mlflow/mlflow.db", \
-    "--host", "0.0.0.0", \
-    "--port", "5000" \
-]
-``
+    ``
+    FROM python:3.10-slim
+    
+    RUN pip install mlflow==2.12.1
+    
+    EXPOSE 5000
+    
+    CMD [ \
+        "mlflow", "server", \
+        "--backend-store-uri", "sqlite:///home/mlflow/mlflow.db", \
+        "--host", "0.0.0.0", \
+        "--port", "5000" \
+    ]
+    ``
 
 And add it to the docker-compose.yaml:
 
-``
-  mlflow:
-    build:
-      context: .
-      dockerfile: mlflow.dockerfile
-    ports:
-      - "5000:5000"
-    volumes:
-      - "${PWD}/mlflow:/home/mlflow/"
-    networks:
-      - app-network
-``
+    ``
+      mlflow:
+        build:
+          context: .
+          dockerfile: mlflow.dockerfile
+        ports:
+          - "5000:5000"
+        volumes:
+          - "${PWD}/mlflow:/home/mlflow/"
+        networks:
+          - app-network
+    ``
 
 Note that app-network is the same network as for mage and postgre containers. If you use a different compose file, adjust it.
 
