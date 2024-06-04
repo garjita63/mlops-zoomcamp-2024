@@ -76,6 +76,9 @@ What's the size of the result?
     - 3,503,766
 
 
+### Answer of Question 4: 3,316,216
+
+
 ## Question 5. Train a model
 
 We will now train a linear regression model using the same code as in homework 1
@@ -94,6 +97,8 @@ Hint: print the intercept_ field in the code block
     - 24.77
     - 27.77
     - 31.77
+
+### Answer of Question 5:
 
 
 ## Question 6. Register the model
@@ -157,7 +162,10 @@ Find the logged model, and find MLModel file. What's the size of the model? (mod
 
     Note: typically we do two last steps in one code block
 
-Submit the results
+### Answer of Question 6:
+
+
+## Submit the results
 
     Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw3
     If your answer doesn't match options exactly, select the closest one
