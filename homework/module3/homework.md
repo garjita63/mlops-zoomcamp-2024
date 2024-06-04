@@ -48,9 +48,12 @@ Let's use the same logic for preparing the data we used previously. We will need
 This is what we used (adjusted for yellow dataset):
 
 
+``
 def read_dataframe(filename):
     df = pd.read_parquet(filename)
-    
+``
+``
+
     df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
     df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
 
@@ -63,6 +66,7 @@ def read_dataframe(filename):
     df[categorical] = df[categorical].astype(str)
     
     return df
+``
 
 Let's adjust it and apply to the data we loaded in question 3.
 
