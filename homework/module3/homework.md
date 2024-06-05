@@ -119,6 +119,7 @@ What's the size of the result?
 - 3,503,766
 
 **Solution**
+
     ``
     from typing import Tuple
 
