@@ -302,7 +302,7 @@ Find the logged model, and find MLModel file. What's the size of the model? (mod
     
 Note: typically we do two last steps in one code block
 
-### Answer of Question 6:
+### Answer of Question 6: 9,534
 
 
 ## Submit the results
