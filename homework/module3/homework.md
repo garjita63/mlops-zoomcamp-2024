@@ -231,7 +231,7 @@ Hint: print the intercept_ field in the code block
     
   ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/a8ef78de-d3ec-4d3e-b8d1-d1dc7843f757)
 
-### Answer of Question 5:
+### Answer of Question 5: 24.77
 
 
 ## Question 6. Register the model
