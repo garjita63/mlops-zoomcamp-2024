@@ -27,7 +27,16 @@ How many lines are in the created metadata.yaml file?
     - 55
     - 65
 
-### Answer of Question 2: 45
+    ``
+    docker exec -it mlops-magic-platform-1 bash
+    root@4c0edc9c9a86:/home/src# mage init homework_03
+    root@4c0edc9c9a86:/home/src# cd homework_03
+    root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
+    55 metadata.yaml
+    ``
+
+### Answer of Question 2: 55
+
 
 ## Question 3. Creating a pipeline
 
@@ -42,6 +51,38 @@ How many records did we load?
     - 3,403,766
     - 3,603,766
 
+    ``
+    import requests
+    from io import BytesIO
+    from typing import List
+    
+    import pandas as pd
+    import numpy as np
+    
+    if 'data_loader' not in globals():
+        from mage_ai.data_preparation.decorators import data_loader
+    
+    
+    @data_loader
+    def ingest_files(**kwargs) -> pd.DataFrame:
+        dfs: List[pd.DataFrame] = []
+
+    #for year, months in [(2023, (3))]:
+    #    for i in range(*months):
+    response = requests.get(
+        'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-03.parquet'
+    )
+
+    df = pd.read_parquet(BytesIO(response.content))
+    df['tpep_pickup_datetime_cleaned'] = df['tpep_pickup_datetime'].astype(np.int64) // 10**9
+    dfs.append(df)
+
+    return pd.concat(dfs)
+    ``
+
+    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/b273cf6e-4588-40af-96f4-ae467f11c6fb)
+
+    
 ### Answer of Question 3: 3,403,766
 
 
@@ -75,6 +116,37 @@ What's the size of the result?
     - 3,316,216
     - 3,503,766
 
+    ``
+    from typing import Tuple
+
+    import pandas as pd
+    
+    from mlops.utils.data_preparation.yellow_cleaning import clean
+    from mlops.utils.data_preparation.feature_engineering import combine_features
+    from mlops.utils.data_preparation.feature_selector import select_features
+    from mlops.utils.data_preparation.splitters import split_on_value
+    
+    if 'transformer' not in globals():
+        from mage_ai.data_preparation.decorators import transformer
+    
+    @transformer
+    def ead_dataframe(filename):
+        df = pd.read_parquet('/home/src/yellow_tripdata_2023-03.parquet')
+        df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+        df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+
+    df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
+    df.duration = df.duration.dt.total_seconds() / 60
+
+    df = df[(df.duration >= 1) & (df.duration <= 60)]
+
+    categorical = ['PULocationID', 'DOLocationID']
+    df[categorical] = df[categorical].astype(str)
+    
+    return df
+    ``
+
+    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/02173880-01da-43b7-af77-49b142e9298a)
 
 ### Answer of Question 4: 3,316,216
 
@@ -97,6 +169,63 @@ Hint: print the intercept_ field in the code block
     - 24.77
     - 27.77
     - 31.77
+
+
+    ``
+    from typing import Tuple
+    import pandas as pd
+    import numpy as np
+    from sklearn.feature_extraction import DictVectorizer
+    from sklearn.linear_model import LinearRegression
+    
+    if 'transformer' not in globals():
+        from mage_ai.data_preparation.decorators import transformer
+    
+    @transformer
+    def transform(
+        df: pd.DataFrame, **kwargs
+    ) -> Tuple[DictVectorizer, LinearRegression]:
+        print("Starting the transform function")
+
+    # Compute the duration in minutes
+    df['duration'] = (df['tpep_dropoff_datetime'] - df['tpep_pickup_datetime']).dt.total_seconds() / 60
+    print("Duration computed")
+
+    # Filter the records to keep only those with duration between 1 and 60 minutes (inclusive)
+    df_filtered = df[(df['duration'] >= 1) & (df['duration'] <= 60)].copy()
+    print(f"Data filtered: {df_filtered.shape[0]} records")
+
+    # Cast IDs to string after ensuring they are of object type
+    df_filtered['PULocationID'] = df_filtered['PULocationID'].astype('object').astype(str)
+    df_filtered['DOLocationID'] = df_filtered['DOLocationID'].astype('object').astype(str)
+    print("IDs casted to string")
+
+    # Prepare feature list of dictionaries
+    dicts = df_filtered[['PULocationID', 'DOLocationID']].to_dict(orient='records')
+    print("Converted to list of dictionaries")
+
+    # Fit a dictionary vectorizer
+    dv = DictVectorizer()
+    X_train = dv.fit_transform(dicts)
+    print(f"Dictionary vectorizer fitted: {X_train.shape}")
+
+    # Prepare the target variable
+    y_train = df_filtered['duration'].values
+    print(f"Target variable prepared: {y_train.shape}")
+
+    # Train a linear regression model
+    lr = LinearRegression()
+    lr.fit(X_train, y_train)
+    print("Linear regression model trained")
+
+    # Print the intercept of the model
+    print(f"Model intercept: {lr.intercept_}")
+
+    # Return the dictionary vectorizer and the model
+    return dv, lr
+    ``
+
+    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/a8ef78de-d3ec-4d3e-b8d1-d1dc7843f757)
 
 ### Answer of Question 5:
 
