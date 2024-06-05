@@ -242,9 +242,9 @@ The model is trained, so let's save it with MLFlow.
 
 If you run mage with docker-compose, stop it with Ctrl+C or
 
-    ``
+    
     docker-compose down
-    ``
+    
 
 Let's create a dockerfile for mlflow, e.g. mlflow.dockerfile:
 
