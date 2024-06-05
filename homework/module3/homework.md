@@ -28,10 +28,15 @@ How many lines are in the created metadata.yaml file?
   
   ``
   docker exec -it mlops-magic-platform-1 bash
+  
   root@4c0edc9c9a86:/home/src# mage init homework_03
+  
   root@4c0edc9c9a86:/home/src# cd homework_03
+  
   root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
+  
   55 metadata.yaml
+  
   ``
 
 ### Answer of Question 2: 55
