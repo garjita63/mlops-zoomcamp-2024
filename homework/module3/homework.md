@@ -120,7 +120,7 @@ What's the size of the result?
 
 **Solution**
 
-    ```
+    
     from typing import Tuple
 
     import pandas as pd
@@ -148,9 +148,9 @@ What's the size of the result?
     df[categorical] = df[categorical].astype(str)
     
     return df
-    ```
+    
 
-    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/02173880-01da-43b7-af77-49b142e9298a)
+   ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/02173880-01da-43b7-af77-49b142e9298a)
 
 ### Answer of Question 4: 3,316,216
 
@@ -175,7 +175,7 @@ Hint: print the intercept_ field in the code block
 
 **Solution**
 
-    ```
+    
     from typing import Tuple
     import pandas as pd
     import numpy as np
@@ -227,7 +227,7 @@ Hint: print the intercept_ field in the code block
 
     # Return the dictionary vectorizer and the model
     return dv, lr
-    ```
+    
     
   ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/a8ef78de-d3ec-4d3e-b8d1-d1dc7843f757)
 
@@ -246,7 +246,7 @@ If you run mage with docker-compose, stop it with Ctrl+C or
 
 Let's create a dockerfile for mlflow, e.g. mlflow.dockerfile:
 
-    ```
+    
     FROM python:3.10-slim
     
     RUN pip install mlflow==2.12.1
@@ -259,11 +259,11 @@ Let's create a dockerfile for mlflow, e.g. mlflow.dockerfile:
         "--host", "0.0.0.0", \
         "--port", "5000" \
     ]
-    ```
+    
 
 And add it to the docker-compose.yaml:
 
-    ```
+    
       mlflow:
         build:
           context: .
@@ -274,7 +274,7 @@ And add it to the docker-compose.yaml:
           - "${PWD}/mlflow:/home/mlflow/"
         networks:
           - app-network
-    ```
+    
 
 Note that app-network is the same network as for mage and postgre containers. If you use a different compose file, adjust it.
 
