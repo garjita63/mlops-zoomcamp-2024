@@ -26,13 +26,13 @@ How many lines are in the created metadata.yaml file?
 - 55
 - 65
   
-  ```
-  docker exec -it mlops-magic-platform-1 bash
-  root@4c0edc9c9a86:/home/src# mage init homework_03
-  root@4c0edc9c9a86:/home/src# cd homework_03
-  root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
-  55 metadata.yaml
-  ```
+```
+docker exec -it mlops-magic-platform-1 bash
+root@4c0edc9c9a86:/home/src# mage init homework_03
+root@4c0edc9c9a86:/home/src# cd homework_03
+root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
+55 metadata.yaml
+```
   
 ### Answer of Question 2: 55
 
@@ -44,13 +44,12 @@ Let's create an ingestion code block.
 In this block, we will read the March 2023 Yellow taxi trips data.
 
 How many records did we load?
+- 3,003,766
+- 3,203,766
+- 3,403,766
+- 3,603,766
 
-    - 3,003,766
-    - 3,203,766
-    - 3,403,766
-    - 3,603,766
-
-    ``
+  ```
     import requests
     from io import BytesIO
     from typing import List
@@ -77,7 +76,7 @@ How many records did we load?
     dfs.append(df)
 
     return pd.concat(dfs)
-    ``
+    ```
 
     ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/b273cf6e-4588-40af-96f4-ae467f11c6fb)
 
