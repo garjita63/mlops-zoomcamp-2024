@@ -25,14 +25,16 @@ How many lines are in the created metadata.yaml file?
 - 45
 - 55
 - 65
-  
-```
-docker exec -it mlops-magic-platform-1 bash
-root@4c0edc9c9a86:/home/src# mage init homework_03
-root@4c0edc9c9a86:/home/src# cd homework_03
-root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
-55 metadata.yaml
-```
+
+**Solution**
+
+  ```
+  docker exec -it mlops-magic-platform-1 bash
+  root@4c0edc9c9a86:/home/src# mage init homework_03
+  root@4c0edc9c9a86:/home/src# cd homework_03
+  root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
+  55 metadata.yaml
+  ```
   
 ### Answer of Question 2: 55
 
@@ -48,6 +50,8 @@ How many records did we load?
 - 3,203,766
 - 3,403,766
 - 3,603,766
+
+**Solution**
 
   ```
     import requests
@@ -76,9 +80,10 @@ How many records did we load?
     dfs.append(df)
 
     return pd.concat(dfs)
-    ```
 
-    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/b273cf6e-4588-40af-96f4-ae467f11c6fb)
+  ```
+
+   ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/b273cf6e-4588-40af-96f4-ae467f11c6fb)
 
     
 ### Answer of Question 3: 3,403,766
@@ -108,12 +113,12 @@ This is what we used (adjusted for yellow dataset):
 Let's adjust it and apply to the data we loaded in question 3.
 
 What's the size of the result?
+- 2,903,766
+- 3,103,766
+- 3,316,216
+- 3,503,766
 
-    - 2,903,766
-    - 3,103,766
-    - 3,316,216
-    - 3,503,766
-
+**Solution**
     ``
     from typing import Tuple
 
@@ -162,14 +167,14 @@ Let's now use it in the pipeline. We will need to create another transformation 
 What's the intercept of the model?
 
 Hint: print the intercept_ field in the code block
+- 21.77
+- 24.77
+- 27.77
+- 31.77
 
-    - 21.77
-    - 24.77
-    - 27.77
-    - 31.77
+**Solution**
 
-
-    ``
+    ```
     from typing import Tuple
     import pandas as pd
     import numpy as np
@@ -221,9 +226,9 @@ Hint: print the intercept_ field in the code block
 
     # Return the dictionary vectorizer and the model
     return dv, lr
-    ``
-
-    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/a8ef78de-d3ec-4d3e-b8d1-d1dc7843f757)
+    ```
+    
+  ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/a8ef78de-d3ec-4d3e-b8d1-d1dc7843f757)
 
 ### Answer of Question 5:
 
@@ -240,7 +245,7 @@ If you run mage with docker-compose, stop it with Ctrl+C or
 
 Let's create a dockerfile for mlflow, e.g. mlflow.dockerfile:
 
-    ``
+    ```
     FROM python:3.10-slim
     
     RUN pip install mlflow==2.12.1
@@ -253,11 +258,11 @@ Let's create a dockerfile for mlflow, e.g. mlflow.dockerfile:
         "--host", "0.0.0.0", \
         "--port", "5000" \
     ]
-    ``
+    ```
 
 And add it to the docker-compose.yaml:
 
-    ``
+    ```
       mlflow:
         build:
           context: .
@@ -268,7 +273,7 @@ And add it to the docker-compose.yaml:
           - "${PWD}/mlflow:/home/mlflow/"
         networks:
           - app-network
-    ``
+    ```
 
 Note that app-network is the same network as for mage and postgre containers. If you use a different compose file, adjust it.
 
@@ -284,13 +289,12 @@ In the block, we
 If you used the suggested docker-compose snippet, mlflow should be accessible at http://mlflow:5000.
 
 Find the logged model, and find MLModel file. What's the size of the model? (model_size_bytes field):
-
     - 14,534
     - 9,534
     - 4,534
     - 1,534
-
-    Note: typically we do two last steps in one code block
+    
+  Note: typically we do two last steps in one code block
 
 ### Answer of Question 6:
 
