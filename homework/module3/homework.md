@@ -294,12 +294,13 @@ In the block, we
 If you used the suggested docker-compose snippet, mlflow should be accessible at http://mlflow:5000.
 
 Find the logged model, and find MLModel file. What's the size of the model? (model_size_bytes field):
-    - 14,534
-    - 9,534
-    - 4,534
-    - 1,534
+
+- 14,534
+- 9,534
+- 4,534
+- 1,534
     
-  Note: typically we do two last steps in one code block
+Note: typically we do two last steps in one code block
 
 ### Answer of Question 6:
 
