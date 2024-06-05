@@ -233,6 +233,8 @@ Hint: print the intercept_ field in the code block
 
 ### Answer of Question 5: 24.77
 
+**Pipeline of Questions 3, 4, 5**
+
 ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/3d5ef237-65ee-4a66-8056-a837e8ec68a4)
 
 
