@@ -120,7 +120,7 @@ What's the size of the result?
 
 **Solution**
 
-    ``
+    ```
     from typing import Tuple
 
     import pandas as pd
@@ -148,7 +148,7 @@ What's the size of the result?
     df[categorical] = df[categorical].astype(str)
     
     return df
-    ``
+    ```
 
     ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/02173880-01da-43b7-af77-49b142e9298a)
 
