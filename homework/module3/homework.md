@@ -21,19 +21,17 @@ What's the version of Mage we run?
 Now let's create a new project. We can call it "homework_03", for example.
 
 How many lines are in the created metadata.yaml file?
-
-    - 35
-    - 45
-    - 55
-    - 65
-    
-
+- 35
+- 45
+- 55
+- 65
+  
 ``
-    docker exec -it mlops-magic-platform-1 bash
-    root@4c0edc9c9a86:/home/src# mage init homework_03
-    root@4c0edc9c9a86:/home/src# cd homework_03
-    root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
-    55 metadata.yaml
+docker exec -it mlops-magic-platform-1 bash
+root@4c0edc9c9a86:/home/src# mage init homework_03
+root@4c0edc9c9a86:/home/src# cd homework_03
+root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
+55 metadata.yaml
 ``
 
 ### Answer of Question 2: 55
