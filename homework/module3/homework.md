@@ -121,24 +121,25 @@ What's the size of the result?
 
 **Solution**
 
-    
-    from typing import Tuple
+```
+from typing import Tuple
 
-    import pandas as pd
-    
-    from mlops.utils.data_preparation.yellow_cleaning import clean
-    from mlops.utils.data_preparation.feature_engineering import combine_features
-    from mlops.utils.data_preparation.feature_selector import select_features
-    from mlops.utils.data_preparation.splitters import split_on_value
-    
-    if 'transformer' not in globals():
-        from mage_ai.data_preparation.decorators import transformer
-    
-    @transformer
-    def ead_dataframe(filename):
-        df = pd.read_parquet('/home/src/yellow_tripdata_2023-03.parquet')
-        df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
-        df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+import pandas as pd
+
+from mlops.utils.data_preparation.yellow_cleaning import clean
+from mlops.utils.data_preparation.feature_engineering import combine_features
+from mlops.utils.data_preparation.feature_selector import select_features
+from mlops.utils.data_preparation.splitters import split_on_value
+
+if 'transformer' not in globals():
+    from mage_ai.data_preparation.decorators import transformer
+
+@transformer
+def transform(
+    df: pd.DataFrame, **kwargs
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+    df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
 
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
     df.duration = df.duration.dt.total_seconds() / 60
@@ -147,9 +148,9 @@ What's the size of the result?
 
     categorical = ['PULocationID', 'DOLocationID']
     df[categorical] = df[categorical].astype(str)
-    
+
     return df
-    
+```  
 
    ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/02173880-01da-43b7-af77-49b142e9298a)
 
