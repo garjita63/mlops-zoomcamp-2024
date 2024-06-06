@@ -180,7 +180,6 @@ Hint: print the intercept_ field in the code block
 ```
 from typing import Tuple
 import pandas as pd
-import numpy as np
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 
@@ -188,9 +187,9 @@ if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
 
 @transformer
-def transform(
+def transform_train_model(
     df: pd.DataFrame, **kwargs
-) -> Tuple[DictVectorizer, LinearRegression]:
+) -> Tuple[pd.DataFrame, DictVectorizer, LinearRegression]:
     print("Starting the transform function")
 
     # Compute the duration in minutes
@@ -227,8 +226,10 @@ def transform(
     # Print the intercept of the model
     print(f"Model intercept: {lr.intercept_}")
 
+    df = df_filtered
+
     # Return the dictionary vectorizer and the model
-    return dv, lr
+    return df, dv, lr;
 ``` 
     
   ![image](https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/a8ef78de-d3ec-4d3e-b8d1-d1dc7843f757)
