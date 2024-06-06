@@ -13,7 +13,7 @@ What's the version of Mage we run?
 
 (You can see it in the UI)
 
-### Answer of Question 1: v0.9.70
+### Answer of Question 1: v0.9.71
 
 
 ## Question 2. Creating a project
@@ -30,8 +30,9 @@ How many lines are in the created metadata.yaml file?
 
   ```
   docker exec -it mlops-magic-platform-1 bash
-  root@4c0edc9c9a86:/home/src# mage init homework_03
-  root@4c0edc9c9a86:/home/src# cd homework_03
+  root@4c0edc9c9a86:/home/src# cd mlops
+  root@4c0edc9c9a86:/home/src/mlops# mage init homework_03
+  root@4c0edc9c9a86:/home/src/mlops# cd homework_03
   root@4c0edc9c9a86:/home/src/mlops/homework_03# wc -l metadata.yaml
   55 metadata.yaml
   ```
