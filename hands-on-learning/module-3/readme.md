@@ -20,13 +20,17 @@
    docker pull mageai/mageai:alpha
    ``
    
-4. Run compose
+4. Set parameters
+   export PROJECT_NAME=mlop                                                                            
+   export MAGE_CODE_PATH=/home/src
+   
+5. Run compose
 
    ``
    docker compose build --no-cache
    ``
    
-5. Launch Mage and the database service (PostgreSQL):
+6. Launch Mage and the database service (PostgreSQL):
    
     ``
     ./scripts/start.sh
