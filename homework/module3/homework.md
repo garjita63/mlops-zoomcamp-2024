@@ -15,6 +15,9 @@ What's the version of Mage we run?
 
 ### Answer of Question 1: v0.9.71
 
+<img width="57" alt="image" src="https://github.com/garjita63/mlops-zoomcamp-2024/assets/77673886/9df77013-158c-486e-97db-7ba986c1fe74">
+
+
 
 ## Question 2. Creating a project
 
