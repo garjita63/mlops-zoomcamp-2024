@@ -1,4 +1,4 @@
-Pipeline of Questions 3, 4, 5# Homework
+# Homework
 
 The goal of this homework is to train a simple model for predicting the duration of a ride, but use Mage for it.
 
