@@ -32,13 +32,13 @@
 
 - Homework
   - [Question](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/03-orchestration/homework.md)
-  - [Form Submitted](https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw3
+  - [Form Submitted](https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw3)
   - [Answer/Solution](https://github.com/garjita63/mlops-zoomcamp-2024/tree/main/homework/module3)
 
 
 ## Module 04-deployment
 
-- [Source](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment
+- [Source](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
 
 - [Hands-On Learning](https://github.com/garjita63/mlops-zoomcamp-2024/blob/main/hands-on-learning/module-4)
 
